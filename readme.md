@@ -1,7 +1,7 @@
-# Yuuri AI assistant in the Thai language 
+# Yuuri AI assistant specifically designed for the Thai language
 
-## What is Yuuri AI assistant in Thai language?
-> Yuuri AI assistant in the Thai language is an AI Chatbot based on Gemini Pro 1.5. It can advise people by considering culture.
+## What is Yuuri AI assistant specifically designed for the Thai language?
+> Yuuri AI assistant specifically designed for the Thai language. It is an AI Chatbot based on Gemini Pro 1.5. It can advise people by considering culture.
 
 ## How to install?
 ```
