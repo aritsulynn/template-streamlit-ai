@@ -4,12 +4,9 @@ import streamlit as st
 import google.generativeai as genai
 
 try:
-    ai_name = os.getenv("BOT_INFO", "ยูริ")
-    bot_info = f"คุณชื่อ {ai_name}"
-
+    AI_NAME = os.getenv("AI_NAME", "AI")
     genai.configure(api_key=os.getenv("GEMINI_TOKEN"))
 
-    AI_NAME = os.getenv("AI_NAME", "ยูริอิอิ")
     safety_settings = [
         {
             "category": "HARM_CATEGORY_DANGEROUS",
@@ -32,22 +29,17 @@ try:
             "threshold": "BLOCK_NONE",
         },
     ]
-    instruction = f"""
-    {bot_info} คุณให้ความช่วยเหลือทางด้านต่างๆเป็นอย่างดีและตอบคำถามโดยคำนึงถึงวัฒนธรรมของประเทศไทย ไม่ลามกจนเกินไป ไม่เกี่ยวข้องด้านศาสนา การชี้นำต่างๆ และตอบคำถามเป็นภาษาไทยเป็นส่วนใหญ่
-    """
     model = genai.GenerativeModel(
         "gemini-1.5-pro-latest",
         safety_settings=safety_settings,
-        system_instruction=instruction,
+        system_instruction=os.getenv("INSTRUCTION", ""),
     )
 
     if "chat" not in st.session_state:
         st.session_state.chat = model.start_chat(history=[])
-    st.title("ยูริ")
+    st.title(AI_NAME)
 
-    st.chat_message("assistant").markdown(
-        "สวัสดีค่ะ ยูริอยู่ที่นี่เพื่อช่วยเหลือคุณ มีอะไรให้ยูริช่วยเหลือไหมคะ?"
-    )
+    st.chat_message("assistant").markdown(f"สวัสดีค่ะ มีอะไรให้{AI_NAME}ช่วยเหลือไหมคะ?")
 
     def role_to_streamlit(role: str) -> str:
         if role == "model":
