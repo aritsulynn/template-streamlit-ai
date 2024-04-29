@@ -1,17 +1,11 @@
-# Yuuri AI assistant specifically designed for the Thai language
-
-## What is Yuuri AI assistant specifically designed for the Thai language?
-> Yuuri AI assistant specifically designed for the Thai language. It is an AI Chatbot based on Gemini Pro 1.5. It can advise people by considering culture.
+# This is Template for creating AI Chatbot(Gemini 1.5 Pro) with Streamlit
 
 ## How to install?
 ```
-git clone https://github.com/aritsulynn/yuuri-assistant-th.git
+git clone https://github.com/aritsulynn/template-streamlit-ai.git
 ```
 
-## How It Works?
-> Yuuri is an AI Chatbot based on Gemini Pro 1.5. It's powerful and we give instructions for ruling it in our rule.
-
-## How to setup?
+## How to setup/run?
 1. First you need to setup .env file the example is .env.example
 2. run by using `streamlit run main.py` command 
 

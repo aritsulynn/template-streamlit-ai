@@ -39,7 +39,9 @@ try:
         st.session_state.chat = model.start_chat(history=[])
     st.title(AI_NAME)
 
-    st.chat_message("assistant").markdown(f"สวัสดีค่ะ มีอะไรให้{AI_NAME}ช่วยเหลือไหมคะ?")
+    st.chat_message("assistant").markdown(
+        f"Hello! I'm {AI_NAME}. How can I help you today?"
+    )
 
     def role_to_streamlit(role: str) -> str:
         if role == "model":
@@ -51,7 +53,7 @@ try:
         with st.chat_message(role_to_streamlit(message.role)):
             st.markdown(message.parts[0].text)
 
-    if prompt := st.chat_input("ใส่ข้อความของคุณ..."):
+    if prompt := st.chat_input("message AI..."):
         st.chat_message("user").markdown(prompt)
         response = st.session_state.chat.send_message(prompt)
         with st.chat_message("assistant"):
